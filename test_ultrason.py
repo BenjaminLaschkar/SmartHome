@@ -2,13 +2,15 @@
 import RPi.GPIO as GPIO
 import time
 # GPIO Mode (BOARD / BCM)
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 # set GPIO Pins
-GPIO_TRIGGER = 18
-GPIO_ECHO = 24
+GPIO_TRIGGER = 12
+GPIO_ECHO = 18
+GPIO_LAMPE = 7
 # set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
+GPIO.setup(GPIO_LAMPE, GPIO.OUT)
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -37,6 +39,8 @@ if __name__ == '__main__':
             dist = distance()
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
+            if(dist <= 20):
+                GPIO.output(GPIO_LAMPE, False)
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
