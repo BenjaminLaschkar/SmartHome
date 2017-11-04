@@ -4,6 +4,15 @@
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
+      <script>
+        var buttonOn = document.getElementById('btn-on');
+        var buttonOff = document.getElementById('btn-off');
+        var ledImg = document.getElementById('led-img');
+        buttonOn.addEventListener('click', function() {
+          ledImg.setAttribute('src', 'led-green.jpg';}
+        buttonOff.addEventListener('click', function() {
+          ledImg.setAttribute('src', 'led-red.jpg';}
+      </script>
         <div id="container">
             <div class="title">
                 <h1>Smart Home control</h1>
@@ -23,14 +32,5 @@
         <span class="onoffswitch-switch" onclick=buttonOff()></span>
     </label>
     </div>
-    <script>
-      var buttonOn = document.getElementById('btn-on');
-      var buttonOff = document.getElementById('btn-off');
-      var ledImg = document.getElementById('led-img');
-      buttonOn.addEventListener('click', function() {
-          ledImg.setAttribute('src', 'led-green.jpg';};
-      buttonOff.addEventListener('click', function() {
-          ledImg.setAttribute('src', 'led-red.jpg';};
-    </script>
 </body>
 </html>
