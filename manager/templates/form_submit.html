@@ -1,18 +1,10 @@
 <html>
     <head>
-        <title>Wall-E-control-page</title>
+        <title>Smart Home control</title>
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     </head>
     <body>
-      <script>
-      var ledImg = document.getElementById('up.png');
-      function buttonOn(){
-        ledImg.setAttribute('src', 'up.png';)
-      }
-      function buttonOff(){
-        ledImg.setAttribute('src', 'down.png';)
-      }
-      </script>
         <div id="container">
             <div class="title">
                 <h1>Smart Home control</h1>
@@ -25,11 +17,12 @@
                 </form>
             </div>
         </div>
+        <input type="image" src="{{ url_for('static', filename='up.png') }}">
         <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner" onclick=buttonOn()></span>
-        <span class="onoffswitch-switch" onclick=buttonOff()></span>
+        <span class="onoffswitch-inner" onclick=$('{{ url_for('static', filename='up.png') }}').attr('src','{{ url_for('static', filename='down.png') }}');></span>
+        <span class="onoffswitch-switch" onclick=$('{{ url_for('static', filename='down.png') }}').attr('src','{{ url_for('static', filename='up.png') }}');></span>
     </label>
     </div>
 </body>
