@@ -23,9 +23,21 @@ def form():
 def sendcommand():
     """Principal page for POST manually."""
     command = request.form['command']
-    command = command.replace(" ", "")
+    if(command == "LIGHT_LIVING_ROOM_ON"):
+        light_living_room_on()
+    elif(command == "LIGHT_LIVING_ROOM_OFF"):
+        light_living_room_off()
     return render_template('form_action.html', command=command)
 
+
+def light_living_room_on():
+    """Launch program to light on the living room."""
+    exec(open("../actions/light_living_room_on.py").read())
+
+
+def light_living_room_off():
+    """Launch program to light on the living room."""
+    exec(open("../actions/light_living_room_off.py").read())
 
 # Run the app :)
 if __name__ == '__main__':
