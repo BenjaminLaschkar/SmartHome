@@ -25,15 +25,21 @@
             </div>
         </div>
 
-      <table align="center" cellpadding="0">
+      <table>
+        <td>1</td>
+        <td>2</td>
+        <tr>3</tr>
+        <tr>4</tr>
+      </table>  
+      <table align="left" cellpadding="0">
         <td width="100">
-          <div>Cliquer <a href="javascript:afficher()">ICI</a> pour afficher l'image.</div>
+          <div><a href="javascript:afficher()"/>Allumer</div>
         </td>
         <td width="100" style="border:black solid 1px">
           <img src={{ url_for('static', filename='up.png') }} id="image">
         </td>
         <td width="100">
-          <div>Cliquer <a href="javascript:effacer()">ICI</a> pour effacer l'image.</div>
+          <div><a href="javascript:effacer()"/>Eteindre</div>
         </td>
       </table>
     </body>
