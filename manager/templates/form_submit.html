@@ -5,13 +5,13 @@
     </head>
     <body>
       <script>
-        var buttonOn = document.getElementById('btn-on');
-        var buttonOff = document.getElementById('btn-off');
-        var ledImg = document.getElementById('led-img');
-        buttonOn.addEventListener('click', function() {
-          ledImg.setAttribute('src', 'led-green.jpg';}
-        buttonOff.addEventListener('click', function() {
-          ledImg.setAttribute('src', 'led-red.jpg';}
+      var ledImg = document.getElementById('up.png');
+      function buttonOn(){
+        ledImg.setAttribute('src', '{{ url_for('static', filename='up.png') }}';)
+      }
+      function buttonOff(){
+        ledImg.setAttribute('src', '{{ url_for('static', filename='down.png') }}';)
+      }
       </script>
         <div id="container">
             <div class="title">
