@@ -3,11 +3,11 @@
         <title>Smart Home control</title>
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
         <script language="javascript">
-          function allume() {
-          document.getElementById('image').src='static/allume.png';
+          function allume(image) {
+          document.getElementById(image).src='static/allume.png';
           }
           function eteint() {
-          document.getElementById('image').src='static/eteint.png';
+          document.getElementById(image).src='static/eteint.png';
           }
         </script>
     </head>
@@ -23,20 +23,20 @@
                   <input type="submit" />
                 </form>
             </div>
-        </div>
+
 
       <table align="left" cellpadding="0">
         <tr>
         <td width="100">Lampe SALON <br>  <img src={{ url_for('static', filename='allume.png') }} id="image"></td>
-        <td width="100"><div><a href="javascript:allume()"/>Allumer</div></td>
-        <td width="100"><div><a href="javascript:eteint()"/>Eteindre</div></td>
+        <td width="100"><div><a href="javascript:allume(image)"/>Allumer</div></td>
+        <td width="100"><div><a href="javascript:eteint(image)"/>Eteindre</div></td>
         </tr>
         <tr>
         <td width="100">Lampe Cuisine <br>  <img src={{ url_for('static', filename='allume.png') }} id="image2"></td>
-        <td width="100"><div><a href="javascript:allume()"/>Allumer</div></td>
-        <td width="100"><div><a href="javascript:eteint()"/>Eteindre</div></td>
+        <td width="100"><div><a href="javascript:allume(image2)"/>Allumer</div></td>
+        <td width="100"><div><a href="javascript:eteint(image2)"/>Eteindre</div></td>
         </tr>
       </table>
-
+      </div>
     </body>
 </html>
