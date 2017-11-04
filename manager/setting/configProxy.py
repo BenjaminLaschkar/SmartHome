@@ -6,7 +6,7 @@ configProxy.py is a library to get all the changing parameter of the wall-e.
 -------------------------------------------------------------------------------
 """
 import yaml
-path_to_file = "/home/pi/SmartHome/setting/config.yml"
+path_to_file = "/home/pi/SmartHome/manager/setting/config.yml"
 with open(path_to_file, 'r') as stream:
     try:
         config = yaml.load(stream)
