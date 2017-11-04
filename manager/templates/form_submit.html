@@ -4,10 +4,10 @@
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
         <script language="javascript">
           function afficher() {
-          document.getElementById('image').src={{ url_for('static', filename='up.png') }};
+          document.getElementById('image').src="{{ url_for('static', filename='up.png')" }};
           }
           function effacer() {
-          document.getElementById('image').src={{ url_for('static', filename='down.png') }};
+          document.getElementById('image').src="{{ url_for('static', filename='down.png')" }};
           }
         </script>
     </head>
