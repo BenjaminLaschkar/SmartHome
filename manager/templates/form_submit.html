@@ -25,28 +25,18 @@
             </div>
         </div>
 
-      <table>
-        <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        </tr>
-        <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        </tr>
-      </table>
       <table align="left" cellpadding="0">
-        <td width="100">
-          <div><a href="javascript:afficher()"/>Allumer</div>
-        </td>
-        <td width="100" style="border:black solid 1px">
-          <img src={{ url_for('static', filename='up.png') }} id="image">
-        </td>
-        <td width="100">
-          <div><a href="javascript:effacer()"/>Eteindre</div>
-        </td>
+        <tr>
+        <td width="100">Lampe SALON <br>  <img src={{ url_for('static', filename='up.png') }} id="image"></td>
+        <td width="100"><div><a href="javascript:afficher()"/>Allumer</div></td>
+        <td width="100"><div><a href="javascript:effacer()"/>Eteindre</div></td>
+        </tr>
+        <tr>
+        <td width="100">Lampe SALON <br>  <img src={{ url_for('static', filename='left.png') }} id="image"></td>
+        <td width="100"><div><a href="javascript:afficher()"/>Allumer</div></td>
+        <td width="100"><div><a href="javascript:effacer()"/>Eteindre</div></td>
+        </tr>
       </table>
+      
     </body>
 </html>
