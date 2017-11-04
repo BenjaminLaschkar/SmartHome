@@ -4,7 +4,7 @@ The queue command manager is the manager for control of the smart home.
 It use a server to receive post request.
 """
 from flask import Flask, render_template, request
-from setting.configProxy import getIp, getPortQueueCommandManager
+from setting.configProxy import getIp, getPort
 # Initialize the Flask application
 app = Flask(__name__)
 
@@ -31,5 +31,5 @@ def sendcommand():
 if __name__ == '__main__':
     app.run(
         host=getIp(),
-        port=getPortQueueCommandManager()
+        port=getPort()
     )
