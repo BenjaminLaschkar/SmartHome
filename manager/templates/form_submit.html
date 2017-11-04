@@ -15,105 +15,13 @@
                   <input type="submit" />
                 </form>
             </div>
-            <div id="content">
-
-<iframe name="hiddenFrame" class="hide"></iframe>
-
-
-<div class="pannel">
-<table>
-<tr>
-    <td></td>
-    <td>
-<form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-<input type="hidden" id="up" name="command" />
-<input type="image" src="{{ url_for('static', filename='up.png') }}">
-</form>
-    </td>
-    <td></td>
-</tr>
-<tr>
-    <td>
-<form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-<input type="hidden" id="left" name="command" />
-<input type="image" src="{{ url_for('static', filename='left.png') }}">
-</form>
-    </td>
-    <td>
-        <input class='input-value' id="valeur" type="text" name="TXT">
-    </td>
-    <td>
-<form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-<input type="hidden" id="right" name="command" />
-<input type="image" src="{{ url_for('static', filename='right.png') }}">
-</form>
-    </td>
-</tr>
-<tr>
-    <td></td>
-    <td>
-<form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-<input type="hidden" id="down" name="command" />
-<input type="image" src="{{ url_for('static', filename='down.png') }}">
-    </td>
-</tr>
-</form>
-</table>
+        </div>
+        <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
 </div>
-
-<div>
-<table>
-<tr>
-<td> <b>Command function</b></td>
-<td> <b>String to send </b></td>
-<td> <b>Description of the command </b></td>
-</tr>
-<tr>
-<td> SET TRANSLATE distance_cm </td>
-<td> ST:[D] </td>
-<td> Order wall-e to move to the X,Y coordonate then rotate to the inputted angle</td>
-</tr>
-<tr>
-<td> SET ROTATE rotation_deg </td>
-<td> SR:[R] </td>
-<td> Order wall-e to move to the X,Y coordonate then rotate to the inputted angle</td>
-</tr>
-<tr>
-<td> SET HEAD Rotation </td>
-<td> SH:[R] </td>
-<td> Order wall-e to rotate the head to the inputted angle</td>
-</tr>
-<tr>
-<td> SET SHOULDER (LEFT || RIGHT) Rotation </td>
-<td> SS[L || R]:[R] </td>
-<td> Order wall-e to rotate the inputted shoulder (left or right) to rotate to the inputted angle</td>
-</tr>
-<tr>
-<td> SET ARM (LEFT||RIGHT)  Rotation </td>
-<td> SA[L || R]:[R] </td>
-<td> Order wall-e to rotate the inputted arm (left or right) to rotate to the inputted angle</td>
-</tr>
-<tr>
-<td> GET HEAD </td>
-<td> GH </td>
-<td> Get the actual angle of wall-e's head</td>
-</tr>
-<tr>
-<td> GET SHOULDER (LEFT||RIGHT) </td>
-<td> GS[L || R] </td>
-<td> Get the actual angle of wall-e's inputted shoulder (left or right) </td>
-</tr>
-<tr>
-<td> GET ARM (LEFT||RIGHT) </td>
-<td> GA[L || R] </td>
-<td> Get the actual angle of wall-e's inputted arm (left or right)</td>
-</tr>
-<tr>
-<td> GET GYRO </td>
-<td> GG </td>
-<td> Get the data of the gyroscope </td>
-</tr>
-</table></div>
-
 </body>
 </html>
