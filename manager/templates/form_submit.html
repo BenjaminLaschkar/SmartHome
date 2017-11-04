@@ -24,12 +24,19 @@
                 </form>
             </div>
 
+      <iframe name="hiddenFrame" class="hide"></iframe>
+
+      <input type="image" src="{{ url_for('static', filename='up.png') }}" onclick=pickValue()>
+      </form>
 
       <table align="left" cellpadding="0">
         <tr>
+        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <input type="hidden" id="up" name="command" />
         <td width="100">Lampe SALON <br>  <img src={{ url_for('static', filename='allume.png') }} id="image1"></td>
         <td width="100"><div><a href="javascript:allume(1)"/>Allumer</div></td>
         <td width="100"><div><a href="javascript:eteint(1)"/>Eteindre</div></td>
+        </form>
         </tr>
         <tr>
         <td width="100">Lampe Cuisine <br>  <img src={{ url_for('static', filename='allume.png') }} id="image2"></td>
