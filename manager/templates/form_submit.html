@@ -19,10 +19,10 @@
         </div>
         <input type="image" src="{{ url_for('static', filename='up.png') }}">
         <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onclick=$('{{ url_for('static', filename='up.png') }}').attr('src','{{ url_for('static', filename='down.png') }}');checked>
     <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner" onclick=$('{{ url_for('static', filename='up.png') }}').attr('src','{{ url_for('static', filename='down.png') }}');></span>
-        <span class="onoffswitch-switch" onclick=$('{{ url_for('static', filename='down.png') }}').attr('src','{{ url_for('static', filename='up.png') }}');></span>
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
     </label>
     </div>
 </body>
