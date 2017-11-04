@@ -9,6 +9,9 @@
           function eteint(i) {
           document.getElementById("image"+i).src='static/eteint.png';
           }
+          function submitForm(){
+        document.getElementById("form1").submit();
+        }
         </script>
     </head>
     <body>
@@ -28,11 +31,11 @@
 
       <table align="left" cellpadding="0">
         <tr>
-        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <form method="post" id="form1" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
         <input type="hidden" id="up" name="command" />
         <td width="100">Lampe SALON <br>  <img src={{ url_for('static', filename='allume.png') }} id="image1"></td>
-        <td width="100"><div><a href="javascript:allume(1).submit();"/>Allumer</div></td>
-        <td width="100"><div><a href="javascript:eteint(1).submit();"/>Eteindre</div></td>
+        <td width="100"><div><a href="javascript:allume(1).submitForm();"/>Allumer</div></td>
+        <td width="100"><div><a href="javascript:eteint(1).submitForm();"/>Eteindre</div></td>
         </form>
         </tr>
         <tr>
