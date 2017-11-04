@@ -6,7 +6,7 @@
     <body>
         <div id="container">
             <div class="title">
-                <h1>Wall-E-control-page</h1>
+                <h1>Smart Home control</h1>
             </div>
             <div id="content">
                 <form method="post"  action="{{ url_for('sendcommand') }}">
@@ -19,9 +19,18 @@
         <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
+        <span class="onoffswitch-inner" onclick=buttonOn()></span>
+        <span class="onoffswitch-switch" onclick=buttonOff()></span>
     </label>
-</div>
+    </div>
+    <script>
+      var buttonOn = document.getElementById('btn-on');
+      var buttonOff = document.getElementById('btn-off');
+      var ledImg = document.getElementById('led-img');
+      buttonOn.addEventListener('click', function() {
+          ledImg.setAttribute('src', 'led-green.jpg';};
+      buttonOff.addEventListener('click', function() {
+          ledImg.setAttribute('src', 'led-red.jpg';};
+    </script>
 </body>
 </html>
