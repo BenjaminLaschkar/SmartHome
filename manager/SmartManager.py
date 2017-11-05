@@ -80,9 +80,7 @@ def light_automatic_start_kitchen():
 
 def light_automatic_stop_kitchen():
     """End program to manage automaticly the kitchen."""
-    pid = check_output(["pidof", "light_kitchen"])
-    print(pid)
-    os.system("sudo kill " + pid)
+    os.system("sudo pkill -f \"light_kitchen\"")
 
 
 # Run the app :)
