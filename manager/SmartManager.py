@@ -81,7 +81,7 @@ def light_automatic_start_kitchen():
 def light_automatic_stop_kitchen():
     """End program to manage automaticly the kitchen."""
     os.system("sudo pkill -f \"light_kitchen\"")
-
+    light_kitchen_off()
 
 # Run the app :)
 if __name__ == '__main__':
