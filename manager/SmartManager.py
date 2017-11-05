@@ -6,7 +6,6 @@ It use a server to receive post request.
 from flask import Flask, render_template, request
 from setting.configProxy import getIp, getPort
 import os
-from subprocess import check_output
 # Initialize the Flask application
 app = Flask(__name__)
 
@@ -64,11 +63,13 @@ def light_bedroom_off():
 
 def light_kitchen_on():
     """Launch program to light on the kitchen."""
+    os.system("sudo pkill -f \"light_kitchen\"")
     exec(open("../actions/light_kitchen_on.py").read())
 
 
 def light_kitchen_off():
     """Launch program to light off the kitchen."""
+    os.system("sudo pkill -f \"light_kitchen\"")
     exec(open("../actions/light_kitchen_off.py").read())
 
 
@@ -78,10 +79,6 @@ def light_automatic_start_kitchen():
     os.system("python3 light_kitchen.py &")
 
 
-def light_automatic_stop_kitchen():
-    """End program to manage automaticly the kitchen."""
-    os.system("sudo pkill -f \"light_kitchen\"")
-    light_kitchen_off()
 
 # Run the app :)
 if __name__ == '__main__':
