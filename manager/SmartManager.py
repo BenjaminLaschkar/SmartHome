@@ -36,6 +36,10 @@ def sendcommand():
         light_kitchen_off()
     elif(command == "LIGHT_AUTOMATIC_START_KITCHEN"):
         light_automatic_kitchen()
+    elif(command == "LIGHT_AUTOMATIC_START_BEDROOM"):
+        light_automatic_bedroom()
+    elif(command == "LIGHT_AUTOMATIC_START_LIVING_ROOM"):
+        light_automatic_living_room()
     return render_template('form_action.html', command=command)
 
 
