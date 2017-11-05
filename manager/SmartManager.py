@@ -74,13 +74,13 @@ def light_kitchen_off():
 def light_automatic_start_kitchen():
     """Launch program to manage automaticly the kitchen."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
-    os.system("python3 light_kitchen.py start")
+    os.system("python3 light_kitchen.py &")
 
 
 def light_automatic_stop_kitchen():
     """End program to manage automaticly the kitchen."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
-    os.system("python3 light_kitchen.py stop")
+    # os.system("python3 light_kitchen.py")
 
 
 # Run the app :)
