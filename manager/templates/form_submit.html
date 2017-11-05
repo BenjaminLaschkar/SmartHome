@@ -25,9 +25,10 @@
             </div>
 
       <iframe name="hiddenFrame" class="hide"></iframe>
+
       <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-      <input type="hidden" id="left" name="command" />
-      <input type="image" src="{{ url_for('static', filename='allume.png') }}" value="LIGHT_LIVING_ROOM_ON">
+      <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_ON"/>
+      <input type="image" src="{{ url_for('static', filename='allume.png') }}">
       </form>
 
       <table align="left" cellpadding="0">
