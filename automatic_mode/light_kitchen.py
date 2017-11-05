@@ -5,8 +5,6 @@ The led of the kitchen is 11 on GPIO.
 """
 import RPi.GPIO as GPIO
 import time
-import sys
-from daemon import Daemon
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BOARD)
 # set GPIO Pins
@@ -42,8 +40,8 @@ def distance():
     return distance
 
 
-class YourCode(object):
-    def run(self):
+if __name__ == '__main__':
+    try:
         while True:
             dist = distance()
             print ("Measured Distance = %.1f cm" % dist)
@@ -52,28 +50,7 @@ class YourCode(object):
                 GPIO.output(GPIO_LAMPE, True)
             else:
                 GPIO.output(GPIO_LAMPE, False)
-
-
-class MyDaemon(Daemon):
-    def run(self):
-        # Or simply merge your code with MyDaemon.
-        your_code = YourCode()
-        your_code.run()
-
-
-if __name__ == "__main__":
-    daemon = MyDaemon('/tmp/daemon-example.pid')
-    if len(sys.argv) == 2:
-        if 'start' == sys.argv[1]:
-            daemon.start()
-        elif 'stop' == sys.argv[1]:
-            daemon.stop()
-        elif 'restart' == sys.argv[1]:
-            daemon.restart()
-        else:
-            print "Unknown command"
-            sys.exit(2)
-        sys.exit(0)
-    else:
-        print "usage: %s start|stop|restart" % sys.argv[0]
-        sys.exit(2)
+        # Reset by pressing CTRL + C
+    except KeyboardInterrupt:
+        print("Measurement stopped by User")
+        GPIO.cleanup()
