@@ -41,21 +41,25 @@ def sendcommand():
 
 def light_living_room_on():
     """Launch program to light on the living room."""
+    os.system("sudo pkill -f \"living_room\"")
     exec(open("../actions/light_living_room_on.py").read())
 
 
 def light_living_room_off():
     """Launch program to light off the living room."""
+    os.system("sudo pkill -f \"living_room\"")
     exec(open("../actions/light_living_room_off.py").read())
 
 
 def light_bedroom_on():
     """Launch program to light on the bedroom."""
+    os.system("sudo pkill -f \"bedroom\"")
     exec(open("../actions/light_bedroom_on.py").read())
 
 
 def light_bedroom_off():
     """Launch program to light off the bedroom."""
+    os.system("sudo pkill -f \"bedroom\"")
     exec(open("../actions/light_bedroom_off.py").read())
 
 
@@ -75,6 +79,18 @@ def light_automatic_kitchen():
     """Launch program to manage automaticly the kitchen."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
     os.system("python3 light_kitchen.py &")
+
+
+def light_automatic_bedroom():
+    """Launch program to manage automaticly the bedroom."""
+    os.chdir("/home/pi/SmartHome/automatic_mode")
+    os.system("python3 light_bedroom.py &")
+
+
+def light_automatic_living_room():
+    """Launch program to manage automaticly the living_room."""
+    os.chdir("/home/pi/SmartHome/automatic_mode")
+    os.system("python3 living_room.py &")
 
 
 # Run the app :)
