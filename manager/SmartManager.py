@@ -94,7 +94,7 @@ def light_automatic_bedroom():
 def light_automatic_living_room():
     """Launch program to manage automaticly the living_room."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
-    os.system("python3 living_room.py &")
+    os.system("python3 light_living_room.py &")
 
 
 # Run the app :)
