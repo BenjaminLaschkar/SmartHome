@@ -6,6 +6,7 @@ It use a server to receive post request.
 from flask import Flask, render_template, request
 from setting.configProxy import getIp, getPort
 import os
+from subprocess import check_output
 # Initialize the Flask application
 app = Flask(__name__)
 
@@ -79,8 +80,9 @@ def light_automatic_start_kitchen():
 
 def light_automatic_stop_kitchen():
     """End program to manage automaticly the kitchen."""
-    os.chdir("/home/pi/SmartHome/automatic_mode")
-    # os.system("python3 light_kitchen.py")
+    pid = check_output(["pidof", "light_kitchen"])
+    print(pid)
+    os.system("sudo kill " + pid)
 
 
 # Run the app :)
