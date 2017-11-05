@@ -53,6 +53,18 @@
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>
+        <td>
+        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <input type="hidden" id="left" name="command" value="LIGHT_AUTOMATIC_START_KITCHEN"/>
+        <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
+        </form>
+        </td>
+        <td>
+        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <input type="hidden" id="left" name="command" value="LIGHT_AUTOMATIC_STOP_KITCHEN"/>
+        <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
+        </form>
+        </td>
         </tr>
         <tr>
         <td width="100">Light BedRoom</td>

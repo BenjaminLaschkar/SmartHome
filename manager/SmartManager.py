@@ -5,6 +5,7 @@ It use a server to receive post request.
 """
 from flask import Flask, render_template, request
 from setting.configProxy import getIp, getPort
+import os
 # Initialize the Flask application
 app = Flask(__name__)
 
@@ -16,9 +17,7 @@ def form():
     return render_template('form_submit.html')
 
 
-# Define a route for the action of the form, for example '/hello/'
-# We are also defining which type of requests this route is
-# accepting: POST requests in this case
+# POST requests in this case
 @app.route('/sendcommand/', methods=['POST'])
 def sendcommand():
     """Principal page for POST manually."""
@@ -35,6 +34,10 @@ def sendcommand():
         light_kitchen_on()
     elif(command == "LIGHT_KITCHEN_OFF"):
         light_kitchen_off()
+    elif(command == "LIGHT_AUTOMATIC_START_KITCHEN"):
+        light_automatic_start_kitchen()
+    elif(command == "LIGHT_AUTOMATIC_STOP_KITCHEN"):
+        light_automatic_stop_kitchen()
     return render_template('form_action.html', command=command)
 
 
@@ -66,6 +69,18 @@ def light_kitchen_on():
 def light_kitchen_off():
     """Launch program to light off the kitchen."""
     exec(open("../actions/light_kitchen_off.py").read())
+
+
+def light_automatic_start_kitchen():
+    """Launch program to manage automaticly the kitchen."""
+    os.chdir("/home/pi/SmartHome/automatic_mode")
+    os.system("python light_kitchen.py start")
+
+
+def light_automatic_stop_kitchen():
+    """End program to manage automaticly the kitchen."""
+    os.chdir("/home/pi/SmartHome/automatic_mode")
+    os.system("python light_kitchen.py stop")
 
 
 # Run the app :)
