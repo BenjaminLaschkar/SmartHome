@@ -29,7 +29,7 @@
 
       <table align="left" cellpadding="0">
         <tr>
-        <td width="100">Lampe SALON</td>
+        <td width="100">Light Living room<td>
         <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
           <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_ON"/>
@@ -39,6 +39,38 @@
         </td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
         <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_OFF"/>
+        <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
+        </form>
+        </td>
+        </form>
+        </tr>
+        <tr>
+        <td width="100">Light Kitchen</td>
+        <td>
+          <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+          <input type="hidden" id="left" name="command" value="LIGHT_KITCHEN_ON"/>
+          <input type="image" src="{{ url_for('static', filename='allume.png') }}">
+          </form>
+        </td>
+        </td>
+        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <input type="hidden" id="left" name="command" value="LIGHT_KITCHEN_OFF"/>
+        <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
+        </form>
+        </td>
+        </form>
+        </tr>
+        <tr>
+        <td width="100">Light BedRoom</td>
+        <td>
+          <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+          <input type="hidden" id="left" name="command" value="LIGHT_BEDROOM_ON"/>
+          <input type="image" src="{{ url_for('static', filename='allume.png') }}">
+          </form>
+        </td>
+        </td>
+        <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+        <input type="hidden" id="left" name="command" value="LIGHT_BEDROOM_OFF"/>
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>

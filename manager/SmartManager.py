@@ -27,6 +27,7 @@ def sendcommand():
         light_living_room_on()
     elif(command == "LIGHT_LIVING_ROOM_OFF"):
         light_living_room_off()
+    elif(command == "")
     return render_template('form_action.html', command=command)
 
 
@@ -36,8 +37,26 @@ def light_living_room_on():
 
 
 def light_living_room_off():
-    """Launch program to light on the living room."""
+    """Launch program to light off the living room."""
     exec(open("../actions/light_living_room_off.py").read())
+
+def light_bedroom_on():
+    """Launch program to light on the bedroom."""
+    exec(open("../actions/light_bedroom_on.py").read())
+
+
+def light_bedroom_off():
+    """Launch program to light off the bedroom."""
+    exec(open("../actions/light_bedroom_off.py").read())
+
+def light_bedroom_on():
+    """Launch program to light on the kitchen."""
+    exec(open("../actions/light_kitchen_on.py").read())
+
+
+def light_bedroom_off():
+    """Launch program to light off the kitchen."""
+    exec(open("../actions/light_kitchen_off.py").read())
 
 # Run the app :)
 if __name__ == '__main__':
