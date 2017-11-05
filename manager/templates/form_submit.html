@@ -22,27 +22,25 @@
                   <input type="text" name="command" /><br/>
                   <input type="submit" />
                 </form>
-            </div>
 
       <iframe name="hiddenFrame" class="hide"></iframe>
 
 
       <table align="left" cellpadding="0">
         <tr>
-        <td width="100">Light Living room<td>
+        <td width="100">Light Living room</td>
         <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
           <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_ON"/>
           <input type="image" src="{{ url_for('static', filename='allume.png') }}">
           </form>
         </td>
-        </td>
+        <td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
         <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_OFF"/>
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>
-        </form>
         </tr>
         <tr>
         <td width="100">Light Kitchen</td>
@@ -52,13 +50,12 @@
           <input type="image" src="{{ url_for('static', filename='allume.png') }}">
           </form>
         </td>
-        </td>
+        <td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
         <input type="hidden" id="left" name="command" value="LIGHT_KITCHEN_OFF"/>
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>
-        </form>
         </tr>
         <tr>
         <td width="100">Light BedRoom</td>
@@ -68,13 +65,12 @@
           <input type="image" src="{{ url_for('static', filename='allume.png') }}">
           </form>
         </td>
-        </td>
+        <td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
         <input type="hidden" id="left" name="command" value="LIGHT_BEDROOM_OFF"/>
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>
-        </form>
         </tr>
         <tr>
         <td width="100">Lampe CHAMBRE <br>  <img src={{ url_for('static', filename='eteint.png') }} id="image3"></td>
@@ -82,6 +78,7 @@
         <td width="100"><div><a href="javascript:eteint(3)"/>Eteindre</div></td>
         </tr>
       </table>
+      </div>
       </div>
     </body>
 </html>
