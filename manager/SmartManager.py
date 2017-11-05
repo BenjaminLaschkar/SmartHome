@@ -35,9 +35,7 @@ def sendcommand():
     elif(command == "LIGHT_KITCHEN_OFF"):
         light_kitchen_off()
     elif(command == "LIGHT_AUTOMATIC_START_KITCHEN"):
-        light_automatic_start_kitchen()
-    elif(command == "LIGHT_AUTOMATIC_STOP_KITCHEN"):
-        light_automatic_stop_kitchen()
+        light_automatic_kitchen()
     return render_template('form_action.html', command=command)
 
 
@@ -73,11 +71,10 @@ def light_kitchen_off():
     exec(open("../actions/light_kitchen_off.py").read())
 
 
-def light_automatic_start_kitchen():
+def light_automatic_kitchen():
     """Launch program to manage automaticly the kitchen."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
     os.system("python3 light_kitchen.py &")
-
 
 
 # Run the app :)
