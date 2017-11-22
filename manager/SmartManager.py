@@ -40,6 +40,11 @@ def sendcommand():
         light_automatic_bedroom()
     elif(command == "LIGHT_AUTOMATIC_START_BATHROOM"):
         light_automatic_bathroom()
+    elif(command == "OPEN_KITCHEN_CURTAIN"):
+        curtain_kitchen_open()
+    elif(command == "CLOSE_KITCHEN_CURTAIN"):
+        curtain_kitchen_close()
+
     return render_template('form_action.html', command=command)
 
 
@@ -93,6 +98,15 @@ def light_automatic_bathroom():
     os.chdir("/home/pi/SmartHome/automatic_mode")
     os.system("python3 light_bathroom.py &")
 
+
+def curtain_kitchen_open():
+    """Launch program to open the kitchen's curtain."""
+    exec(open("../actions/curtain_kitchen_open.py").read())
+
+
+def curtain_kitchen_close():
+    """Launch program to close the kitchen's curtain."""
+    exec(open("../actions/curtain_kitchen_close.py").read())
 
 # Run the app :)
 if __name__ == '__main__':
