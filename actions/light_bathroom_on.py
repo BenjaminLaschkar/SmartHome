@@ -7,6 +7,6 @@ import RPi.GPIO as GPIO
 import os
 os.system("sudo pkill -f \"bathroom\"")
 GPIO.setmode(GPIO.BCM)
-GPIO_LAMPE = 25
+GPIO_LAMPE = 12
 GPIO.setup(GPIO_LAMPE, GPIO.OUT)
 GPIO.output(GPIO_LAMPE, True)

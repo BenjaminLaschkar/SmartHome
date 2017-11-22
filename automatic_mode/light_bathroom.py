@@ -8,9 +8,9 @@ import time
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 # set GPIO Pins
-GPIO_TRIGGER = 18
-GPIO_ECHO = 24
-GPIO_LAMPE = 25
+GPIO_TRIGGER = 22
+GPIO_ECHO = 5
+GPIO_LAMPE = 12
 # set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
