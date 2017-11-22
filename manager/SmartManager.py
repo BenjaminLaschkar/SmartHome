@@ -66,13 +66,13 @@ def light_bedroom_off():
 
 def light_kitchen_on():
     """Launch program to light on the kitchen."""
-    os.system("sudo pkill -f \"light_kitchen\"")
+    os.system("sudo pkill -f \"kitchen\"")
     exec(open("../actions/light_kitchen_on.py").read())
 
 
 def light_kitchen_off():
     """Launch program to light off the kitchen."""
-    os.system("sudo pkill -f \"light_kitchen\"")
+    os.system("sudo pkill -f \"kitchen\"")
     exec(open("../actions/light_kitchen_off.py").read())
 
 

@@ -6,11 +6,11 @@ The led of the kitchen is 11 on GPIO.
 import RPi.GPIO as GPIO
 import time
 # GPIO Mode (BOARD / BCM)
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 # set GPIO Pins
-GPIO_TRIGGER = 12
-GPIO_ECHO = 18
-GPIO_LAMPE = 11
+GPIO_TRIGGER = 17
+GPIO_ECHO = 4
+GPIO_LAMPE = 6
 # set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
