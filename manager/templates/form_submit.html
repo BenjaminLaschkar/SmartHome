@@ -25,22 +25,22 @@
       <iframe name="hiddenFrame" class="hide"></iframe>
       <table align="left" cellpadding="0">
         <tr>
-        <td width="20">Light Living room</td>
+        <td width="20">Light Bathroom</td>
         <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-          <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_ON"/>
+          <input type="hidden" id="left" name="command" value="LIGHT_BATHROOM_ON"/>
           <input type="image" src="{{ url_for('static', filename='allume.png') }}">
           </form>
         </td>
         <td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-        <input type="hidden" id="left" name="command" value="LIGHT_LIVING_ROOM_OFF"/>
+        <input type="hidden" id="left" name="command" value="LIGHT_BATHROOM_OFF"/>
         <input type="image" src="{{ url_for('static', filename='eteint.png') }}">
         </form>
         </td>
         <td>
         <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-        <input type="hidden" id="left" name="command" value="LIGHT_AUTOMATIC_START_LIVING_ROOM"/>
+        <input type="hidden" id="left" name="command" value="LIGHT_AUTOMATIC_START_BATHROOM"/>
         <input type="image" src="{{ url_for('static', filename='automatic.png') }}">
         </form>
         </td>
@@ -67,7 +67,7 @@
         </td>
         </tr>
         <tr>
-        <td width="20">Light BedRoom</td>
+        <td width="20">Light Bedroom</td>
         <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
           <input type="hidden" id="left" name="command" value="LIGHT_BEDROOM_ON"/>

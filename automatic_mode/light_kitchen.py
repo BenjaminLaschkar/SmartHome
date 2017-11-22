@@ -1,5 +1,5 @@
 """
-This program manage the light in the living room.
+This program manage the light in the kitchen.
 
 The led of the kitchen is 11 on GPIO.
 """
