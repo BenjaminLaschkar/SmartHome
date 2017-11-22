@@ -12,8 +12,8 @@ pwm = PWM(0x40)
 # Note if you'd like more debug output you can instead run:
 # pwm = PWM(0x40, debug=True)
 
-servoDeg = 60  # Min pulse length out of 4096
-
+servoMin = 150  # Min pulse length out of 4096
+servoMax = 600  # Max pulse length out of 4096
 
 
 def setServoPulse(channel, pulse):
@@ -29,4 +29,7 @@ def setServoPulse(channel, pulse):
 
 
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
-pwm.setPWM(0, 0, servoDeg)
+pwm.setPWM(0, 0, servoMin)
+time.sleep(1)
+pwm.setPWM(0, 0, servoMax)
+time.sleep(1)
