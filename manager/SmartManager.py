@@ -101,12 +101,14 @@ def light_automatic_bathroom():
 
 def curtain_kitchen_open():
     """Launch program to open the kitchen's curtain."""
-    exec(open("../actions/curtain_kitchen_open.py").read())
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("python curtain_kitchen_open.py")
 
 
 def curtain_kitchen_close():
     """Launch program to close the kitchen's curtain."""
-    exec(open("../actions/curtain_kitchen_close.py").read())
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("python curtain_kitchen_close.py")
 
 
 # Run the app :)
