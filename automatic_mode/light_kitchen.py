@@ -44,7 +44,7 @@ if __name__ == '__main__':
     try:
         while True:
             dist = distance()
-            # print ("Measured Distance = %.1f cm" % dist)
+            print("Measured Distance = %.1f cm" % dist)
             time.sleep(0.3)
             if(dist < 20):
                 GPIO.output(GPIO_LAMPE, True)
