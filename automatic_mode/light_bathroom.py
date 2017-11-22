@@ -1,7 +1,7 @@
 """
-This program manage the light in the living room.
+This program manage the light in the bathroom.
 
-The led of the living room is 7 on GPIO.
+The led of the bathroom is 7 on GPIO.
 """
 import RPi.GPIO as GPIO
 import time

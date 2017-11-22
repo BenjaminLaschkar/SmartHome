@@ -22,10 +22,10 @@ def form():
 def sendcommand():
     """Principal page for POST manually."""
     command = request.form['command']
-    if(command == "LIGHT_LIVING_ROOM_ON"):
-        light_living_room_on()
-    elif(command == "LIGHT_LIVING_ROOM_OFF"):
-        light_living_room_off()
+    if(command == "LIGHT_BATHROOM_ON"):
+        light_bathroom_on()
+    elif(command == "LIGHT_BATHROOM_OFF"):
+        light_bathroom_off()
     elif(command == "LIGHT_BEDROOM_ON"):
         light_bedroom_on()
     elif(command == "LIGHT_BEDROOM_OFF"):
@@ -38,26 +38,23 @@ def sendcommand():
         light_automatic_kitchen()
     elif(command == "LIGHT_AUTOMATIC_START_BEDROOM"):
         light_automatic_bedroom()
-    elif(command == "LIGHT_AUTOMATIC_START_LIVING_ROOM"):
-        light_automatic_living_room()
+    elif(command == "LIGHT_AUTOMATIC_START_BATHROOM"):
+        light_automatic_bathroom()
     return render_template('form_action.html', command=command)
 
 
-def light_living_room_on():
-    """Launch program to light on the living room."""
-    os.system("sudo pkill -f \"living_room\"")
-    exec(open("../actions/light_living_room_on.py").read())
+def light_bathroom_on():
+    """Launch program to light on the bathroom."""
+    exec(open("../actions/light_bathroom_on.py").read())
 
 
-def light_living_room_off():
-    """Launch program to light off the living room."""
-    os.system("sudo pkill -f \"living_room\"")
-    exec(open("../actions/light_living_room_off.py").read())
+def light_bathroom_off():
+    """Launch program to light off the bathroom."""
+    exec(open("../actions/light_bathroom_off.py").read())
 
 
 def light_bedroom_on():
     """Launch program to light on the bedroom."""
-    os.system("sudo pkill -f \"bedroom\"")
     exec(open("../actions/light_bedroom_on.py").read())
 
 
@@ -91,10 +88,10 @@ def light_automatic_bedroom():
     os.system("python3 light_bedroom.py &")
 
 
-def light_automatic_living_room():
-    """Launch program to manage automaticly the living_room."""
+def light_automatic_bathroom():
+    """Launch program to manage automaticly the bathroom."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
-    os.system("python3 light_living_room.py &")
+    os.system("python3 light_bathroom.py &")
 
 
 # Run the app :)
