@@ -4,13 +4,15 @@ import time
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BOARD)
 # set GPIO Pins
-GPIO_TRIGGER = 12
-GPIO_ECHO = 18
+GPIO_TRIGGER = 18
+GPIO_ECHO = 24
 GPIO_LAMPE = 7
 # set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 GPIO.setup(GPIO_LAMPE, GPIO.OUT)
+
+
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
