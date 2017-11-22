@@ -108,6 +108,7 @@ def curtain_kitchen_close():
     """Launch program to close the kitchen's curtain."""
     exec(open("../actions/curtain_kitchen_close.py").read())
 
+
 # Run the app :)
 if __name__ == '__main__':
     app.run(
