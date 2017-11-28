@@ -59,17 +59,15 @@ def sendcommand():
 
 def light_bathroom_on():
     """Launch program to light on the bathroom."""
-    global light_bathroom_watt, light_change
+    global light_bathroom_watt
     light_bathroom_watt = True
-    light_change = True
     exec(open("../actions/light_bathroom_on.py").read())
 
 
 def light_bathroom_off():
     """Launch program to light off the bathroom."""
-    global light_bathroom_watt, light_change
+    global light_bathroom_watt
     light_bathroom_watt = False
-    light_change = True
     exec(open("../actions/light_bathroom_off.py").read())
 
 
@@ -141,10 +139,11 @@ def curtain_bedroom_close():
 
 def update_Watt_Value():
     """Update watt value."""
-    global house_watt, light_change
-    if(light_bathroom_watt and light_change):
-        house_watt += 10
-        light_change = False
+    global house_watt, light_bathroom_watt
+    if(light_bathroom_watt):
+        house_watt == 10
+    else:
+        house_watt == 0
     print(house_watt)
 
 
