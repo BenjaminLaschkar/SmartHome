@@ -51,6 +51,18 @@ def sendcommand():
         curtain_bedroom_open()
     elif(command == "CLOSE_BEDROOM_CURTAIN"):
         curtain_bedroom_close()
+    elif(command == "ONLY_LIGHT_ON_BEDROOM"):
+        light_automatic_bathroom_ON()
+    elif(command == "ONLY_LIGHT_OFF_BEDROOM"):
+        light_automatic_bathroom_OFF()
+    elif(command == "ONLY_LIGHT_ON_BATHROOM"):
+        light_automatic_bathroom_ON()
+    elif(command == "ONLY_LIGHT_OFF_BATHROOM"):
+        light_automatic_bathroom_OFF()
+    elif(command == "ONLY_LIGHT_ON_KITCHEN"):
+        light_automatic_kitchen_ON()
+    elif(command == "ONLY_LIGHT_OFF_KITCHEN"):
+        light_automatic_kitchen_OFF()
 
     update_Watt_Value()
 
@@ -60,6 +72,7 @@ def sendcommand():
 def light_bathroom_on():
     """Launch program to light on the bathroom."""
     global light_bathroom_watt
+    os.system("sudo pkill -f \"bathroom\"")
     light_bathroom_watt = True
     exec(open("../actions/light_bathroom_on.py").read())
 
@@ -67,13 +80,14 @@ def light_bathroom_on():
 def light_bathroom_off():
     """Launch program to light off the bathroom."""
     global light_bathroom_watt
+    os.system("sudo pkill -f \"bathroom\"")
     light_bathroom_watt = False
     exec(open("../actions/light_bathroom_off.py").read())
 
 
 def light_bedroom_on():
     """Launch program to light on the bedroom."""
-    # light_bedroom_watt = True
+    os.system("sudo pkill -f \"bedroom\"")
     exec(open("../actions/light_bedroom_on.py").read())
 
 
@@ -99,6 +113,30 @@ def light_automatic_kitchen():
     """Launch program to manage automaticly the kitchen."""
     os.chdir("/home/pi/SmartHome/automatic_mode")
     os.system("python3 light_kitchen.py &")
+
+
+def light_automatic_kitchen_ON():
+    exec(open("../actions/light_kitchen_on.py").read())
+
+
+def light_automatic_kitchen_OFF():
+    exec(open("../actions/light_kitchen_off.py").read())
+
+
+def light_automatic_bedroom_ON():
+    exec(open("../actions/light_bedroom_on.py").read())
+
+
+def light_automatic_bedroom_OFF():
+    exec(open("../actions/light_bedroom_off.py").read())
+
+
+def light_automatic_bathroom_ON():
+    exec(open("../actions/light_bathroom_on.py").read())
+
+
+def light_automatic_bathroom_OFF():
+    exec(open("../actions/light_bathroom_off.py").read())
 
 
 def light_automatic_bedroom():

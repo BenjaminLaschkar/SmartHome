@@ -5,6 +5,10 @@ The led of the bathroom is 7 on GPIO.
 """
 import RPi.GPIO as GPIO
 import time
+import sys
+from urllib import request, parse
+sys.path.append('/home/pi/SmartHome/manager/setting')
+from configProxy import getIp, getPort
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
 # set GPIO Pins
@@ -40,6 +44,13 @@ def distance():
     return distance
 
 
+def send(value):
+        data = parse.urlencode({"command": value}).encode()
+        url = "http://" + str(getIp()) + ":" + str(getPort()) + "/sendcommand/"
+        req = request.Request(url, data=data)
+        resp = request.urlopen(req)
+
+
 if __name__ == '__main__':
     try:
         while True:
@@ -47,9 +58,9 @@ if __name__ == '__main__':
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
             if(dist < 10):
-                GPIO.output(GPIO_LAMPE, True)
+                send("ONLY_LIGHT_ON_BATHROOM")
             else:
-                GPIO.output(GPIO_LAMPE, False)
+                send("ONLY_LIGHT_OFF_BATHROOM")
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
