@@ -11,6 +11,29 @@ app = Flask(__name__)
 
 house_watt = 0
 light_bathroom_watt = False
+light_bedroom_watt = False
+light_kitchen_watt = False
+
+
+def update_Watt_Value():
+    """Update watt value."""
+    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt
+    if(light_bathroom_watt):
+        house_watt += 10
+    else:
+        house_watt -= 10
+    if(light_bedroom_watt):
+        house_watt += 10
+    else:
+        house_watt -= 10
+    if(light_kitchen_watt):
+        house_watt += 10
+    else:
+        house_watt -= 10
+    print(house_watt)
+
+
+update_Watt_Value()
 
 
 # Define a route for the default URL, which loads the form
@@ -193,24 +216,6 @@ def curtain_bedroom_close():
     """Launch program to close the bedroom's curtain."""
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python curtain_bedroom_close.py")
-
-
-def update_Watt_Value():
-    """Update watt value."""
-    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt
-    if(light_bathroom_watt):
-        house_watt += 10
-    else:
-        house_watt -= 10
-    if(light_bedroom_watt):
-        house_watt += 10
-    else:
-        house_watt -= 10
-    if(light_kitchen_watt):
-        house_watt += 10
-    else:
-        house_watt -= 10
-    print(house_watt)
 
 
 # Run the app :)
