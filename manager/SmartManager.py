@@ -87,25 +87,33 @@ def light_bathroom_off():
 
 def light_bedroom_on():
     """Launch program to light on the bedroom."""
+    global light_bedroom_watt
     os.system("sudo pkill -f \"bedroom\"")
+    light_bedroom_watt = True
     exec(open("../actions/light_bedroom_on.py").read())
 
 
 def light_bedroom_off():
     """Launch program to light off the bedroom."""
+    global light_bedroom_watt
     os.system("sudo pkill -f \"bedroom\"")
+    light_bedroom_watt = False
     exec(open("../actions/light_bedroom_off.py").read())
 
 
 def light_kitchen_on():
     """Launch program to light on the kitchen."""
+    global light_kitchen_watt
     os.system("sudo pkill -f \"kitchen\"")
+    light_kitchen_watt = True
     exec(open("../actions/light_kitchen_on.py").read())
 
 
 def light_kitchen_off():
     """Launch program to light off the kitchen."""
+    global light_kitchen_watt
     os.system("sudo pkill -f \"kitchen\"")
+    light_kitchen_watt = False
     exec(open("../actions/light_kitchen_off.py").read())
 
 
@@ -116,26 +124,38 @@ def light_automatic_kitchen():
 
 
 def light_automatic_kitchen_ON():
+    global light_kitchen_watt
+    light_kitchen_watt = True
     exec(open("../actions/light_kitchen_on.py").read())
 
 
 def light_automatic_kitchen_OFF():
+    global light_kitchen_watt
+    light_kitchen_watt = False
     exec(open("../actions/light_kitchen_off.py").read())
 
 
 def light_automatic_bedroom_ON():
+    global light_bedroom_watt
+    light_bedroom_watt = True
     exec(open("../actions/light_bedroom_on.py").read())
 
 
 def light_automatic_bedroom_OFF():
+    global light_bedroom_watt
+    light_bedroom_watt = False
     exec(open("../actions/light_bedroom_off.py").read())
 
 
 def light_automatic_bathroom_ON():
+    global light_bathroom_watt
+    light_bathroom_watt = True
     exec(open("../actions/light_bathroom_on.py").read())
 
 
 def light_automatic_bathroom_OFF():
+    global light_bathroom_watt
+    light_bathroom_watt = False
     exec(open("../actions/light_bathroom_off.py").read())
 
 
@@ -177,8 +197,16 @@ def curtain_bedroom_close():
 
 def update_Watt_Value():
     """Update watt value."""
-    global house_watt, light_bathroom_watt
+    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt
     if(light_bathroom_watt):
+        house_watt = 10
+    else:
+        house_watt = 0
+    if(light_bedroom_watt):
+        house_watt = 10
+    else:
+        house_watt = 0
+    if(light_kitchen_watt):
         house_watt = 10
     else:
         house_watt = 0
