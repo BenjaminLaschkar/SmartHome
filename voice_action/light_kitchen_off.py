@@ -18,4 +18,4 @@ def send(value):
         resp = request.urlopen(req)
 
 
-send("ONLY_LIGHT_ON_KITCHEN")
+send("LIGHT_KITCHEN_OFF")
