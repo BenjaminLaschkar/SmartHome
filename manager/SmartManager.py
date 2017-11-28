@@ -44,6 +44,10 @@ def sendcommand():
         curtain_kitchen_open()
     elif(command == "CLOSE_KITCHEN_CURTAIN"):
         curtain_kitchen_close()
+    elif(command == "OPEN_BEDROOM_CURTAIN"):
+        curtain_kitchen_open()
+    elif(command == "CLOSE_BEDROOM_CURTAIN"):
+        curtain_kitchen_close()
 
     return render_template('form_action.html', command=command)
 
@@ -109,6 +113,18 @@ def curtain_kitchen_close():
     """Launch program to close the kitchen's curtain."""
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python curtain_kitchen_close.py")
+
+
+def curtain_bedroom_open():
+    """Launch program to open the bedroom's curtain."""
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python curtain_bedroom_open.py")
+
+
+def curtain_bedroom_close():
+    """Launch program to close the bedroom's curtain."""
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python curtain_bedroom_close.py")
 
 
 # Run the app :)

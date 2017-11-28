@@ -102,6 +102,21 @@
           </form>
           </td>
         </tr>
+        <tr>
+          <td width="20">Bedroom Curtain</td>
+          <td>
+            <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+            <input type="hidden" id="left" name="command" value="OPEN_BEDROOM_CURTAIN"/>
+            <input type="image" src="{{ url_for('static', filename='open.png') }}">
+            </form>
+          </td>
+          <td>
+          <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+          <input type="hidden" id="left" name="command" value="CLOSE_BEDROOM_CURTAIN"/>
+          <input type="image" src="{{ url_for('static', filename='close.png') }}">
+          </form>
+          </td>
+        </tr>
       </table>
       </div>
     </body>
