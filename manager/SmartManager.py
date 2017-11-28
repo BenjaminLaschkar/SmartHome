@@ -141,10 +141,9 @@ def update_Watt_Value():
     """Update watt value."""
     global house_watt, light_bathroom_watt
     if(light_bathroom_watt):
-        house_watt == 10
+        house_watt = 10
     else:
-        house_watt == 0
-    print(light_bathroom_watt)
+        house_watt = 0
     print(house_watt)
 
 
