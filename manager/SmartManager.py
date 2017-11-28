@@ -45,9 +45,9 @@ def sendcommand():
     elif(command == "CLOSE_KITCHEN_CURTAIN"):
         curtain_kitchen_close()
     elif(command == "OPEN_BEDROOM_CURTAIN"):
-        curtain_kitchen_open()
+        curtain_bedroom_open()
     elif(command == "CLOSE_BEDROOM_CURTAIN"):
-        curtain_kitchen_close()
+        curtain_bedroom_close()
 
     return render_template('form_action.html', command=command)
 
