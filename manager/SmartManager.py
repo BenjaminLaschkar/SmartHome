@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 house_watt = 0
 light_bathroom_watt = False
-light_change = False
+
 
 # Define a route for the default URL, which loads the form
 @app.route('/')
@@ -144,6 +144,7 @@ def update_Watt_Value():
         house_watt == 10
     else:
         house_watt == 0
+    print(light_bathroom_watt)
     print(house_watt)
 
 
