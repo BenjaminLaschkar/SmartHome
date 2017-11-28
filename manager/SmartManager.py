@@ -9,6 +9,9 @@ import os
 # Initialize the Flask application
 app = Flask(__name__)
 
+house_watt = 0
+light_bathroom_watt = False
+light_change = False
 
 # Define a route for the default URL, which loads the form
 @app.route('/')
@@ -49,21 +52,30 @@ def sendcommand():
     elif(command == "CLOSE_BEDROOM_CURTAIN"):
         curtain_bedroom_close()
 
+    update_Watt_Value()
+
     return render_template('form_action.html', command=command)
 
 
 def light_bathroom_on():
     """Launch program to light on the bathroom."""
+    global light_bathroom_watt, light_change
+    light_bathroom_watt = True
+    light_change = True
     exec(open("../actions/light_bathroom_on.py").read())
 
 
 def light_bathroom_off():
     """Launch program to light off the bathroom."""
+    global light_bathroom_watt, light_change
+    light_bathroom_watt = False
+    light_change = True
     exec(open("../actions/light_bathroom_off.py").read())
 
 
 def light_bedroom_on():
     """Launch program to light on the bedroom."""
+    # light_bedroom_watt = True
     exec(open("../actions/light_bedroom_on.py").read())
 
 
@@ -125,6 +137,15 @@ def curtain_bedroom_close():
     """Launch program to close the bedroom's curtain."""
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python curtain_bedroom_close.py")
+
+
+def update_Watt_Value():
+    """Update watt value."""
+    global house_watt, light_change
+    if(light_bathroom_watt and light_change):
+        house_watt += 10
+        light_change = False
+    print(house_watt)
 
 
 # Run the app :)
