@@ -19,17 +19,18 @@ def update_Watt_Value():
     """Update watt value."""
     global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt
     if(light_bathroom_watt):
-        house_watt += 10
+        light_value_bathroom = 10
     else:
-        house_watt -= 10
+        light_value_bathroom = 0
     if(light_bedroom_watt):
-        house_watt += 10
+        light_value_bedroom = 10
     else:
-        house_watt -= 10
+        light_value_bedroom = 0
     if(light_kitchen_watt):
-        house_watt += 10
+        light_value_kitchen = 10
     else:
-        house_watt -= 10
+        light_value_kitchen = 0
+    house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen
     print(house_watt)
 
 
