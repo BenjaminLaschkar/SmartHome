@@ -29,8 +29,8 @@ def setServoPulse(channel, pulse):
 
 
 pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
-pwm.setPWM(4, 4, servoMin)
+pwm.setPWM(5, 5, servoMin)
 time.sleep(1)
-pwm.setPWM(4, 4, servoMax)
+pwm.setPWM(5, 5, servoMax)
 time.sleep(1)
 exit()
