@@ -9,28 +9,35 @@ import os
 # Initialize the Flask application
 app = Flask(__name__)
 
+MAXIMAL_HOUSE_WATT = 510
+MACHINE_WATT_VALUE = 500
+LIGHT_WATT_VALUE = 10
 house_watt = 0
 light_bathroom_watt = False
 light_bedroom_watt = False
 light_kitchen_watt = False
-
+laundry_watt = False
 
 def update_Watt_Value():
     """Update watt value."""
-    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt
+    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt, laundry_watt, LIGHT_WATT_VALUE, MACHINE_WATT_VALUE
     if(light_bathroom_watt):
-        light_value_bathroom = 10
+        light_value_bathroom = LIGHT_WATT_VALUE
     else:
         light_value_bathroom = 0
     if(light_bedroom_watt):
-        light_value_bedroom = 10
+        light_value_bedroom = LIGHT_WATT_VALUE
     else:
         light_value_bedroom = 0
     if(light_kitchen_watt):
-        light_value_kitchen = 10
+        light_value_kitchen = LIGHT_WATT_VALUE
     else:
         light_value_kitchen = 0
-    house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen
+    if():
+        laundry_value = MACHINE_WATT_VALUE
+    else:
+        laundry_value = 0
+    house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen + laundry_value
     print(house_watt)
 
 
@@ -87,6 +94,14 @@ def sendcommand():
         light_automatic_kitchen_ON()
     elif(command == "ONLY_LIGHT_OFF_KITCHEN"):
         light_automatic_kitchen_OFF()
+    elif(command == "LAUNCH_LAUNDRY"):
+        launch_laundry()
+    elif(command == "FORCE_LAUNCH_LAUNDRY"):
+        force_launch_laundry()
+    elif(command == "LAUNCH_DISHWASHER"):
+        launch_dishwasher()
+    elif(command == "FORCE_LAUNCH_DISHWASHER"):
+        force_launch_dishwasher()
 
     update_Watt_Value()
 
@@ -217,6 +232,42 @@ def curtain_bedroom_close():
     """Launch program to close the bedroom's curtain."""
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python curtain_bedroom_close.py")
+
+
+def launch_laundry():
+    global laundry_watt, house_watt, MAXIMAL_HOUSE_WATT, MACHINE_WATT_VALUE
+    if(house_watt + MACHINE_WATT_VALUE < MAXIMAL_HOUSE_WATT):
+        laundry_watt = True
+        os.chdir("/home/pi/SmartHome/actions")
+        os.system("sudo python launch_laundry.py")
+    else:
+        print("Operation not permitted ! Too much consuption in the house ! The machine will start later.")
+
+
+def force_launch_laundry():
+    global laundry_watt
+    laundry_watt = True
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python launch_laundry.py")
+
+
+def stopping_laundry():
+    global laundry_watt
+    laundry_watt = False
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python stop_laundry.py")
+
+
+def launch_dishwasher():
+    print("ok")
+
+
+def force_launch_dishwasher():
+    print("ok")
+
+
+def stopping_dishwasher():
+    print("ok")
 
 
 # Run the app :)
