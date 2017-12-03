@@ -32,6 +32,7 @@ h1 {
     text-transform: capitalize;
 }
 
+
 code {
     font-family: Consolas, Monaco, Courier New, Courier, monospace;
     font-size: 12px;
@@ -45,6 +46,7 @@ code {
 #content {
     padding: 20px;
     zoom: 1;
+    margin-bottom: 300%;
 }
 
 #body{
