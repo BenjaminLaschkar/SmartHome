@@ -22,7 +22,7 @@ dishwasher_watt = False
 
 def update_Watt_Value():
     """Update watt value."""
-    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt, dishwasher_watt laundry_watt, LIGHT_WATT_VALUE, MACHINE_WATT_VALUE
+    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt, dishwasher_watt, laundry_watt, LIGHT_WATT_VALUE, MACHINE_WATT_VALUE
     if(light_bathroom_watt):
         light_value_bathroom = LIGHT_WATT_VALUE
     else:
