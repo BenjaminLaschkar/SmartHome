@@ -142,14 +142,20 @@
           <td width="20">Kitchen dishwasher</td>
           <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
-          <input type="hidden" id="left" name="command" value="STOP_DISHWASHER"/>
-          <input type="image" src="{{ url_for('static', filename='stop_dishwasher.png') }}">
+          <input type="hidden" id="left" name="command" value="LAUNCH_DISHWASHER"/>
+          <input type="image" src="{{ url_for('static', filename='dishwasher.png') }}">
           </form>
           </td>
           <td>
           <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
           <input type="hidden" id="left" name="command" value="FORCE_LAUNCH_DISHWASHER"/>
           <input type="image" src="{{ url_for('static', filename='force_dishwasher.png') }}">
+          </form>
+          </td>
+          <td>
+          <form method="post" action="{{ url_for('sendcommand') }}" target="hiddenFrame">
+          <input type="hidden" id="left" name="command" value="STOP_DISHWASHER"/>
+          <input type="image" src="{{ url_for('static', filename='STOP_dishwasher.png') }}">
           </form>
           </td>
         </tr>
