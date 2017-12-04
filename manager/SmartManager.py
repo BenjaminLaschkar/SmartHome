@@ -10,7 +10,7 @@ import time
 # Initialize the Flask application
 app = Flask(__name__)
 
-MAXIMAL_HOUSE_WATT = 510
+MAXIMAL_HOUSE_WATT = 520
 MACHINE_WATT_VALUE = 500
 LIGHT_WATT_VALUE = 10
 house_watt = 0
@@ -18,10 +18,11 @@ light_bathroom_watt = False
 light_bedroom_watt = False
 light_kitchen_watt = False
 laundry_watt = False
+dishwasher_watt = False
 
 def update_Watt_Value():
     """Update watt value."""
-    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt, laundry_watt, LIGHT_WATT_VALUE, MACHINE_WATT_VALUE
+    global house_watt, light_bathroom_watt, light_bedroom_watt, light_kitchen_watt, dishwasher_watt laundry_watt, LIGHT_WATT_VALUE, MACHINE_WATT_VALUE
     if(light_bathroom_watt):
         light_value_bathroom = LIGHT_WATT_VALUE
     else:
@@ -38,7 +39,11 @@ def update_Watt_Value():
         laundry_value = MACHINE_WATT_VALUE
     else:
         laundry_value = 0
-    house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen + laundry_value
+    if(dishwasher_watt):
+        dishwasher_value = MACHINE_WATT_VALUE
+    else:
+        dishwasher_value = 0
+    house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen + laundry_value + dishwasher_value
     print("La consommation actuelle est de : " + str(house_watt))
 
 
@@ -246,7 +251,7 @@ def launch_laundry():
         os.chdir("/home/pi/SmartHome/actions")
         os.system("sudo python launch_laundry.py &")
     else:
-        print("Operation not permitted ! Too much consuption in the house ! The machine will start later.")
+        print("Operation not permitted for the laundry  ! Too much consuption in the house ! The machine will start later.")
 
 
 def force_launch_laundry():
@@ -266,15 +271,29 @@ def stopping_laundry():
 
 
 def launch_dishwasher():
-    print("ok")
+    global dishwasher_watt, house_watt, MAXIMAL_HOUSE_WATT, MACHINE_WATT_VALUE
+    if(house_watt + MACHINE_WATT_VALUE < MAXIMAL_HOUSE_WATT):
+        dishwasher_watt = True
+        os.chdir("/home/pi/SmartHome/actions")
+        os.system("sudo python launch_dishwasher.py &")
+    else:
+        print("Operation not permitted for the dishwasher ! Too much consuption in the house ! The machine will start later.")
 
 
 def force_launch_dishwasher():
-    print("ok")
+    global dishwasher_watt
+    dishwasher_watt = True
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python launch_dishwasher.py &")
 
 
 def stopping_dishwasher():
-    print("ok")
+    global dishwasher_watt
+    os.system("sudo pkill -f \"dishwasher\"")
+    dishwasher_watt = False
+    time.sleep(1)
+    os.chdir("/home/pi/SmartHome/actions")
+    os.system("sudo python stop_dishwasher.py")
 
 
 # Run the app :)
