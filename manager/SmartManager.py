@@ -38,7 +38,7 @@ def update_Watt_Value():
     else:
         laundry_value = 0
     house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen + laundry_value
-    print(house_watt)
+    print("La consommation actuelle est de : " + house_watt)
 
 
 update_Watt_Value()
@@ -248,13 +248,14 @@ def force_launch_laundry():
     global laundry_watt
     laundry_watt = True
     os.chdir("/home/pi/SmartHome/actions")
-    os.system("sudo python launch_laundry.py")
+    os.system("sudo python launch_laundry.py &")
 
 
 def stopping_laundry():
     global laundry_watt
     os.system("sudo pkill -f \"laundry\"")
     laundry_watt = False
+    time.sleep(1)
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python stop_laundry.py")
 
