@@ -33,7 +33,7 @@ def update_Watt_Value():
         light_value_kitchen = LIGHT_WATT_VALUE
     else:
         light_value_kitchen = 0
-    if():
+    if(laundry_watt):
         laundry_value = MACHINE_WATT_VALUE
     else:
         laundry_value = 0
@@ -253,7 +253,7 @@ def force_launch_laundry():
 
 def stopping_laundry():
     global laundry_watt
-    os.system("sudo pkill -f \"kitchen\"")
+    os.system("sudo pkill -f \"laundry\"")
     laundry_watt = False
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python stop_laundry.py")
