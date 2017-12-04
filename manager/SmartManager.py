@@ -6,6 +6,7 @@ It use a server to receive post request.
 from flask import Flask, render_template, request
 from setting.configProxy import getIp, getPort
 import os
+import time
 # Initialize the Flask application
 app = Flask(__name__)
 
