@@ -89,9 +89,9 @@ def sendcommand():
     elif(command == "CLOSE_BEDROOM_CURTAIN"):
         curtain_bedroom_close()
     elif(command == "ONLY_LIGHT_ON_BEDROOM"):
-        light_automatic_bathroom_ON()
+        light_automatic_bedroom_ON()
     elif(command == "ONLY_LIGHT_OFF_BEDROOM"):
-        light_automatic_bathroom_OFF()
+        light_automatic_bedroom_OFF()
     elif(command == "ONLY_LIGHT_ON_BATHROOM"):
         light_automatic_bathroom_ON()
     elif(command == "ONLY_LIGHT_OFF_BATHROOM"):
