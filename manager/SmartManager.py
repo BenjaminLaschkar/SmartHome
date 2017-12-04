@@ -39,7 +39,7 @@ def update_Watt_Value():
     else:
         laundry_value = 0
     house_watt = light_value_bathroom + light_value_bedroom + light_value_kitchen + laundry_value
-    print("La consommation actuelle est de : " + house_watt)
+    print("La consommation actuelle est de : " + str(house_watt))
 
 
 update_Watt_Value()
