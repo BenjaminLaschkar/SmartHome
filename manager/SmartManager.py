@@ -239,7 +239,7 @@ def launch_laundry():
     if(house_watt + MACHINE_WATT_VALUE < MAXIMAL_HOUSE_WATT):
         laundry_watt = True
         os.chdir("/home/pi/SmartHome/actions")
-        os.system("sudo python launch_laundry.py")
+        os.system("sudo python launch_laundry.py &")
     else:
         print("Operation not permitted ! Too much consuption in the house ! The machine will start later.")
 
@@ -253,6 +253,7 @@ def force_launch_laundry():
 
 def stopping_laundry():
     global laundry_watt
+    os.system("sudo pkill -f \"kitchen\"")
     laundry_watt = False
     os.chdir("/home/pi/SmartHome/actions")
     os.system("sudo python stop_laundry.py")
