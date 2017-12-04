@@ -103,6 +103,10 @@ def sendcommand():
         launch_dishwasher()
     elif(command == "FORCE_LAUNCH_DISHWASHER"):
         force_launch_dishwasher()
+    elif(command == "STOP_LAUNDRY"):
+        stopping_laundry()
+    elif(command == "STOP_DISHWASHER"):
+        stopping_dishwasher()
 
     update_Watt_Value()
 
