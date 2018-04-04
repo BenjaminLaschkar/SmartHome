@@ -36,6 +36,12 @@ La librairie Flask pour la mise en place du serveur web
 LOpenJarvis pour la reconnaissance vocale
 La librairie RPI.Gpio pour le contrôle des ports GPIO du Rapsberry Pi.
 
+# Architecture du projet
+
+![Image architecture](/ImageReadme/architecture_smart_home.jpg)
+
 # Photo du projet abouti.
 
-![Photo maquette](photo_projet.jpg)
+![Photo maquette](/ImageReadme/photo_projet.jpg)
+
+
