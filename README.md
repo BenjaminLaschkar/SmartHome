@@ -38,4 +38,4 @@ La librairie RPI.Gpio pour le contrôle des ports GPIO du Rapsberry Pi.
 
 # Photo du projet abouti.
 
-[link photo]
+![Photo maquette](photo_projet.jpg)
