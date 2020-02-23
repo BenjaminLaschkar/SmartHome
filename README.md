@@ -9,7 +9,7 @@ Cependant "l'intelligence" d'une maison peut être bien mieux exploitée. En eff
 
 # Assomption de départ
 
-Ce projet part également du postulat que chaque appareil ne sera jamais 100% manuel et qu'un mode manuel est nécessaire. 
+Ce projet part également du postulat que chaque appareil ne sera jamais 100% automatique et qu'un mode manuel est nécessaire. 
 Un exemple simple pour comprendre : Vous voulez reposer vos yeux dans l'après-midi et vous décidez d'éteindre les lumières de la maison, le système automatisé ne pourra jamais le détecter et vous avez besoin d'un mode manuel pour éteindre ces lumières.
 
 # Description
